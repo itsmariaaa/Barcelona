@@ -112,7 +112,7 @@ post_electoral_2023 %>%
   theme(panel.grid.major.x = element_blank(),  
         panel.grid.minor.x = element_blank())
 
-# GRAPGH ON BARCELONA EVOLUTION
+# GRAPH ON BARCELONA EVOLUTION
 post_electoral_2023 %>%
   ggplot(aes(x = EVO1A_BCN, fill = MUNI_PARTIT)) +
   geom_bar(aes(y = (..count..)/sum(..count..))) +
@@ -145,15 +145,15 @@ post_electoral_2023 %>%
   ggplot(aes(y = MOMENT_DECIDIR_VOTAR_PARTIT_1A3, fill = MUNI_PARTIT)) +
   geom_bar(aes(x = (..count..)/sum(..count..))) +
   scale_x_continuous(labels = scales::percent_format()) +
-  labs(x = "Percentatge", y = "Valoració evolució de la ciutat", 
-       title = "Valoració de la evolució de Barcelona en funció del seu vot",
+  labs(x = "Percentatge", y = "Moment escollir partit", 
+       title = "Moment de la decició del partit polític",
        fill = "Partit polític") +
   theme_minimal() +
   scale_fill_manual(values = colores) +
   theme(panel.grid.major.y = element_blank(),  
         panel.grid.minor.y = element_blank())
 
-#GRAPH ON WHICH WAS THEIR SECOND OPTION FOR VOTE 
+# GRAPH ON WHICH WAS THEIR SECOND OPTION FOR VOTE (PSC VOTERS)
 post_electoral_2023 %>%
   filter(MUNI_PARTIT == "PSC" & !is.na(MUNI_PARTIT01_DUB)) %>%
   ggplot(aes(x = MUNI_PARTIT, fill = MUNI_PARTIT01_DUB)) +
@@ -167,6 +167,22 @@ post_electoral_2023 %>%
   theme(panel.grid.major.x = element_blank(),  
         panel.grid.minor.x = element_blank())
 ````
+The final visualization
+
+**Graph 1: GRAPH ON MUNICIPAL MANAGEMENT EVALUATION**
+![graph_1](https://github.com/itsmariaaa/Barcelona/assets/165412651/b32353e8-9f70-42cf-a950-422be2d17ffd)
+**Graph 2: GRAPH ON MUNICIPAL ECONOMY EVALUATION**
+![graph_2](https://github.com/itsmariaaa/Barcelona/assets/165412651/33763776-ac5d-4fc3-855d-4d7dd1cd0166)
+**Graph 3: GRAPH ON BARCELONA EVOLUTION**
+![graph_3 (2)](https://github.com/itsmariaaa/Barcelona/assets/165412651/886be8fa-5ab8-4ea7-bd0c-1ca46d3089d4)
+**Graph 4: GRAPH ON WHEN THEY DECIDED TO VOTE**
+![graph_4](https://github.com/itsmariaaa/Barcelona/assets/165412651/230b48bb-de99-4365-abec-3c1e05c8806c)
+**Graph 5: GRAPH ON WHEN THEY DECIDED TO VOTE FOR THE PARTY**
+![graph_5](https://github.com/itsmariaaa/Barcelona/assets/165412651/682b28f8-312e-40c7-b42d-5a3b78e2ffc7)
+**Graph 6: GRAPH ON WHICH WAS THEIR SECOND OPTION FOR VOTE (PSC VOTERS)**
+![graph_6](https://github.com/itsmariaaa/Barcelona/assets/165412651/70135de5-2b3e-4783-91f3-10bc6288073f)
+
+
 
 ### Third step:
 Make some linear regressions. But first we've to create another dataframe for each political party 
